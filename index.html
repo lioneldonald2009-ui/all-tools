@@ -1,86 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ALL TOOLS : des outils gratuits pour calculer, convertir, créer des QR codes, traiter des images et travailler avec du texte.">
+<meta name="description" content="Utilisez gratuitement ALL TOOLS : calculatrice en ligne, convertisseur d'unités, générateur de QR code, outils de texte, compresseur d'images et générateur de mots de passe.">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0b1020">
-<title>ALL TOOLS — Tous les outils utiles au même endroit</title>
-<style>
-:root{--bg:#0b1020;--panel:#121a2d;--panel2:#18233a;--line:#26334d;--text:#edf3ff;--muted:#9aa9c2;--accent:#7c8cff;--accent2:#42d6c5;--danger:#ff7185;--shadow:0 18px 50px #0005}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1b2850 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1180px;margin:auto;padding:22px}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 24px;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px;font-weight:850;font-size:20px;letter-spacing:.4px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#07111e;font-weight:950;font-size:20px;box-shadow:0 8px 25px #6578ff55}
-.pill{border:1px solid #35516a;color:#9ce9df;padding:7px 11px;border-radius:99px;font-size:12px;background:#122b35}
-.hero{padding:36px 0 24px;display:grid;grid-template-columns:1.5fr .8fr;gap:20px;align-items:center}.eyebrow{color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:1.6px;font-weight:800}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.06;margin:10px 0 12px;letter-spacing:-1.8px}.gradient{background:linear-gradient(90deg,#aeb8ff,#55e1d1);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:620px;margin:0}.hero-card{background:linear-gradient(145deg,#1c2b4b,#121a2d);border:1px solid #344464;border-radius:22px;padding:22px;box-shadow:var(--shadow)}.hero-card strong{font-size:28px;display:block}.hero-card span{color:var(--muted);font-size:13px}
-.searchbar{display:flex;gap:10px;margin:12px 0 22px}.searchbar input{flex:1}
-input,select,textarea{width:100%;background:#0c1426;color:var(--text);border:1px solid var(--line);border-radius:11px;padding:11px 12px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px #7c8cff22}textarea{min-height:110px;resize:vertical}
-button,.btn{border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(135deg,var(--accent),#6678e8);color:white;font-weight:750}.btn-secondary{background:#24314a;border:1px solid #3a4a68;color:var(--text)}.btn-small{padding:8px 11px;font-size:13px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:22px 0 12px}.section-head h2{margin:0;font-size:20px}.section-head p{margin:0;color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool-card{background:linear-gradient(160deg,#17223a,#11192b);border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;color:var(--text);transition:.18s;min-height:140px}.tool-card:hover{transform:translateY(-3px);border-color:#7184ff;box-shadow:0 12px 28px #0004}.tool-icon{width:42px;height:42px;border-radius:13px;background:#26365a;display:grid;place-items:center;font-size:21px;margin-bottom:12px}.tool-card h3{margin:0 0 4px;font-size:16px}.tool-card p{margin:0;color:var(--muted);font-size:13px}
-.workspace{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);display:none}.workspace.active{display:block}.workspace-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.workspace-head h2{margin:0}.workspace-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.close{background:#26334d;padding:7px 11px}.tool-body{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px;margin-bottom:12px}.field label{color:#c6d2e7;font-size:13px;font-weight:650}.result{padding:13px;border:1px dashed #526488;border-radius:12px;background:#0d1729;min-height:48px;overflow-wrap:anywhere}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.muted{color:var(--muted);font-size:13px}.calc{max-width:340px}.calc-display{text-align:right;font-size:28px;margin-bottom:10px}.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.calc-grid button{padding:15px 5px;background:#263550}.calc-grid .op{background:#35477a}.calc-grid .equals{background:linear-gradient(135deg,var(--accent),#586ce0)}.qr-box{min-height:210px;display:grid;place-items:center;background:white;border-radius:12px;padding:12px}.qr-box canvas,.qr-box img{max-width:100%;height:auto}.drop{border:1px dashed #536789;border-radius:13px;padding:20px;text-align:center;color:var(--muted)}.preview{max-width:100%;max-height:260px;border-radius:12px;display:block;margin:12px auto}.stats{display:flex;gap:12px;flex-wrap:wrap}.stat{background:#0d1729;border:1px solid var(--line);padding:12px 15px;border-radius:12px;min-width:100px}.stat b{font-size:20px;display:block}.stat span{color:var(--muted);font-size:12px}
-footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.notice{background:#172b36;border:1px solid #28545b;border-radius:12px;padding:12px;color:#b9eee6;font-size:13px;margin-top:14px}
-@media(max-width:760px){.shell{padding:15px}.hero{grid-template-columns:1fr;padding-top:27px}.hero-card{display:none}.grid{grid-template-columns:repeat(2,1fr)}.tool-body{grid-template-columns:1fr}.searchbar{flex-direction:column}.section-head{align-items:start;flex-direction:column}}
-@media(max-width:420px){.grid{grid-template-columns:1fr}.brand{font-size:17px}.pill{font-size:10px}}
-</style>
-</head>
-<body>
-<div class="shell">
-<header><div class="brand"><div class="logo">A</div><span>ALL <span class="gradient">TOOLS</span></span></div><div class="pill">✦ Version 1.0 · Gratuit</div></header>
-<section class="hero">
-<div><div class="eyebrow">La boîte à outils numérique</div><h1>Tous tes outils.<br><span class="gradient">Un seul endroit.</span></h1><p>Calcule, convertis, crée et prépare tes documents avec des outils simples, rapides et gratuits. Pensé pour le téléphone et l'ordinateur.</p></div>
-<div class="hero-card"><strong>6 outils</strong><span>disponibles dans cette première version</span><div style="height:12px"></div><strong style="font-size:18px;color:#8de5d9">100 % pratique</strong><span>Plusieurs fonctions réalisent les opérations directement dans ton navigateur.</span></div>
-</section>
-<div class="searchbar"><input id="search" placeholder="Rechercher un outil… (ex. QR code, image, calcul)"><button class="btn-secondary" onclick="clearSearch()">Effacer</button></div>
-<div class="section-head"><div><h2>Explorer les outils</h2><p>Choisis un outil pour commencer.</p></div></div>
-<div class="grid" id="toolGrid">
-<button class="tool-card" data-search="calculatrice calcul maths" onclick="openTool('calc')"><div class="tool-icon">🧮</div><h3>Calculatrice</h3><p>Effectue des calculs rapidement.</p></button>
-<button class="tool-card" data-search="convertisseur unités température longueur poids" onclick="openTool('convert')"><div class="tool-icon">🔁</div><h3>Convertisseur</h3><p>Convertis longueur, poids et température.</p></button>
-<button class="tool-card" data-search="qr code générateur lien texte" onclick="openTool('qr')"><div class="tool-icon">▦</div><h3>Générateur QR code</h3><p>Transforme un texte ou un lien en QR code.</p></button>
-<button class="tool-card" data-search="texte compteur mots caractères majuscules" onclick="openTool('text')"><div class="tool-icon">✍️</div><h3>Outils de texte</h3><p>Compte les mots et transforme ton texte.</p></button>
-<button class="tool-card" data-search="image compresser réduire redimensionner photo" onclick="openTool('image')"><div class="tool-icon">🖼️</div><h3>Compresseur d'images</h3><p>Réduis le poids d'une image dans ton navigateur.</p></button>
-<button class="tool-card" data-search="mot de passe sécurisé générateur" onclick="openTool('password')"><div class="tool-icon">🔐</div><h3>Mot de passe</h3><p>Génère un mot de passe aléatoire.</p></button>
-</div>
-<section class="workspace" id="workspace">
-<div class="workspace-head"><div><h2 id="toolTitle">Outil</h2><p id="toolDesc"></p></div><button class="close" onclick="closeTool()">✕</button></div>
-<div id="toolContent"></div>
-</section>
-<div class="notice">🔒 Confidentialité : les outils de calcul, de texte, de mot de passe et de compression d'image fonctionnent localement dans ton navigateur. Tes fichiers ne sont pas envoyés à un serveur par cette page.</div>
-<footer><span>© 2026 ALL TOOLS · Projet indépendant</span><span>Une première version à améliorer avec tes idées.</span></footer>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-const workspace=document.getElementById('workspace'),content=document.getElementById('toolContent');
-const titles={calc:['Calculatrice','Les opérations de base, directement ici.'],convert:['Convertisseur','Convertis facilement des unités courantes.'],qr:['Générateur de QR code','Crée un QR code à partir d’un texte ou d’un lien. Connexion Internet nécessaire pour charger le générateur.'],text:['Outils de texte','Compte, nettoie et transforme ton texte.'],image:['Compresseur d’images','Réduis la taille d’une image sans l’envoyer sur un serveur.'],password:['Générateur de mot de passe','Crée un mot de passe aléatoire.']};
-function openTool(id){workspace.classList.add('active');document.getElementById('toolTitle').textContent=titles[id][0];document.getElementById('toolDesc').textContent=titles[id][1];content.innerHTML=tools[id]();workspace.scrollIntoView({behavior:'smooth',block:'start'});if(id==='calc')initCalc();if(id==='convert')convertNow();if(id==='text')textStats();if(id==='password')makePassword();if(id==='qr'){} }
-function closeTool(){workspace.classList.remove('active')}
-function clearSearch(){document.getElementById('search').value='';filterTools()}
-document.getElementById('search').addEventListener('input',filterTools);
-function filterTools(){let q=document.getElementById('search').value.toLowerCase();document.querySelectorAll('.tool-card').forEach(c=>c.style.display=(c.dataset.search+' '+c.innerText).toLowerCase().includes(q)?'':'none')}
-const tools={
-calc:()=>`<div class="calc"><input class="calc-display" id="calcDisplay" value="0" readonly><div class="calc-grid">${['7','8','9','÷','4','5','6','×','1','2','3','−','0','.','C','+','⌫','(',')','='].map(x=>`<button class="${'÷×−+'.includes(x)?'op':''} ${x==='='?'equals':''}" onclick="calcPress('${x}')">${x}</button>`).join('')}</div><p class="muted">Astuce : utilise les parenthèses pour grouper les opérations.</p></div>`,
-convert:()=>`<div class="tool-body"><div><div class="field"><label>Catégorie</label><select id="cat" onchange="updateUnits()"><option value="length">Longueur</option><option value="weight">Poids</option><option value="temp">Température</option></select></div><div class="field"><label>Valeur</label><input id="fromVal" type="number" value="1" oninput="convertNow()"></div><div class="field"><label>De</label><select id="fromUnit" onchange="convertNow()"></select></div><div class="field"><label>Vers</label><select id="toUnit" onchange="convertNow()"></select></div></div><div><label class="muted">Résultat</label><div class="result" id="convertResult" style="font-size:24px;margin-top:7px">—</div></div></div>`,
-qr:()=>`<div class="tool-body"><div><div class="field"><label>Texte ou adresse web</label><textarea id="qrText" placeholder="https://exemple.com ou ton texte"></textarea></div><button onclick="makeQR()">Créer le QR code</button><p class="muted">Pour scanner, ouvre l'appareil photo de ton téléphone.</p></div><div class="qr-box" id="qrOutput"><span style="color:#333">Ton QR code apparaîtra ici.</span></div></div>`,
-text:()=>`<div class="tool-body"><div><div class="field"><label>Ton texte</label><textarea id="textInput" oninput="textStats()" placeholder="Écris ou colle ton texte ici…"></textarea></div><div class="actions"><button class="btn-small" onclick="transformText('upper')">MAJUSCULES</button><button class="btn-secondary btn-small" onclick="transformText('lower')">minuscules</button><button class="btn-secondary btn-small" onclick="transformText('clean')">Nettoyer espaces</button><button class="btn-secondary btn-small" onclick="copyText()">Copier</button></div></div><div><div class="stats"><div class="stat"><b id="words">0</b><span>Mots</span></div><div class="stat"><b id="chars">0</b><span>Caractères</span></div><div class="stat"><b id="charsNo">0</b><span>Sans espaces</span></div></div><p class="muted">Les statistiques se mettent à jour pendant la saisie.</p></div></div>`,
-image:()=>`<div class="tool-body"><div><div class="drop"><label for="imageFile" style="cursor:pointer">📁 Choisir une image<br><span class="muted">JPG, PNG ou WebP</span></label><input id="imageFile" type="file" accept="image/*" style="margin-top:12px" onchange="loadImage(event)"></div><div class="field" style="margin-top:14px"><label>Qualité de compression : <span id="qualityLabel">75 %</span></label><input id="quality" type="range" min="20" max="95" value="75" oninput="document.getElementById('qualityLabel').textContent=this.value+'%'"></div><button onclick="compressImage()">Compresser l'image</button></div><div><div id="imageInfo" class="result">Aucune image sélectionnée.</div><img id="imagePreview" class="preview" style="display:none"><a id="imageDownload" class="btn" style="display:none;text-decoration:none" download="all-tools-image.jpg">Télécharger l'image</a></div></div>`,
-password:()=>`<div class="tool-body"><div><div class="field"><label>Longueur : <span id="passLenLabel">16</span> caractères</label><input id="passLen" type="range" min="8" max="40" value="16" oninput="document.getElementById('passLenLabel').textContent=this.value"></div><div class="field"><label><input type="checkbox" id="passUpper" checked style="width:auto"> Majuscules</label><label><input type="checkbox" id="passNumber" checked style="width:auto"> Chiffres</label><label><input type="checkbox" id="passSymbol" checked style="width:auto"> Symboles</label></div><button onclick="makePassword()">Générer un mot de passe</button></div><div><label class="muted">Ton mot de passe</label><div class="result" id="passResult" style="font-size:20px;margin-top:7px">—</div><div class="actions"><button class="btn-secondary btn-small" onclick="copyPassword()">Copier</button></div><p class="muted">Généré sur ton appareil. Ne partage jamais ton mot de passe.</p></div></div>`
-};
-let calcExpr='';
-function initCalc(){calcExpr='';document.getElementById('calcDisplay').value='0'}
-function calcPress(x){let d=document.getElementById('calcDisplay');if(x==='C'){calcExpr='';d.value='0';return}if(x==='⌫'){calcExpr=calcExpr.slice(0,-1);d.value=calcExpr||'0';return}if(x==='='){try{let safe=calcExpr.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-');if(!/^[0-9+\-*/().\s]+$/.test(safe))throw Error();let r=Function('"use strict";return ('+safe+')')();if(!Number.isFinite(r))throw Error();calcExpr=String(Number(r.toFixed(10)));d.value=calcExpr}catch(e){d.value='Erreur';calcExpr=''}return}calcExpr+=x;d.value=calcExpr}
-const units={length:{m:1,km:1000,cm:.01,mm:.001,mi:1609.344,ft:.3048},weight:{kg:1,g:.001,mg:.000001,lb:.45359237,oz:.0283495},temp:{'°C':'C','°F':'F','K':'K'}};
-function updateUnits(){let c=document.getElementById('cat').value,keys=Object.keys(units[c]);['fromUnit','toUnit'].forEach((id,i)=>{document.getElementById(id).innerHTML=keys.map((k,j)=>`<option ${j===(i?1:0)?'selected':''}>${k}</option>`).join('')});convertNow()}
-function convertNow(){if(!document.getElementById('cat'))return;let c=document.getElementById('cat').value,v=Number(document.getElementById('fromVal').value),a=document.getElementById('fromUnit').value,b=document.getElementById('toUnit').value;if(!Number.isFinite(v)){document.getElementById('convertResult').textContent='Entre une valeur valide.';return}let r;if(c==='temp'){let C=a==='°C'?v:a==='°F'?(v-32)*5/9:v-273.15;r=b==='°C'?C:b==='°F'?C*9/5+32:C+273.15}else r=v*units[c][a]/units[c][b];document.getElementById('convertResult').textContent=Number(r.toFixed(8)).toLocaleString('fr-FR')+' '+b}
-function makeQR(){let val=document.getElementById('qrText').value.trim(),out=document.getElementById('qrOutput');out.innerHTML='';if(!val){out.textContent='Saisis un texte ou un lien.';return}if(typeof QRCode==='undefined'){out.textContent='Le générateur QR nécessite une connexion Internet. Recharge la page et réessaie.';return}new QRCode(out,{text:val,width:190,height:190,colorDark:'#111827',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H})}
-function textStats(){let el=document.getElementById('textInput');if(!el)return;let t=el.value;document.getElementById('words').textContent=(t.trim().match(/\S+/g)||[]).length;document.getElementById('chars').textContent=t.length;document.getElementById('charsNo').textContent=t.replace(/\s/g,'').length}
-function transformText(mode){let el=document.getElementById('textInput');if(mode==='upper')el.value=el.value.toLocaleUpperCase('fr');if(mode==='lower')el.value=el.value.toLocaleLowerCase('fr');if(mode==='clean')el.value=el.value.replace(/\s+/g,' ').trim();textStats()}
-function copyText(){navigator.clipboard?.writeText(document.getElementById('textInput').value).then(()=>alert('Texte copié.')).catch(()=>alert('Copie non disponible dans ce navigateur.'))}
-let loadedImage=null;function loadImage(e){let f=e.target.files[0];if(!f)return;let url=URL.createObjectURL(f),img=new Image();img.onload=()=>{loadedImage=img;document.getElementById('imagePreview').src=url;document.getElementById('imagePreview').style.display='block';document.getElementById('imageInfo').textContent=`Image originale : ${img.width} × ${img.height} px · ${(f.size/1024).toFixed(1)} Ko`;document.getElementById('imageDownload').style.display='none'};img.src=url}
-function compressImage(){if(!loadedImage){alert('Choisis d’abord une image.');return}let canvas=document.createElement('canvas');canvas.width=loadedImage.width;canvas.height=loadedImage.height;canvas.getContext('2d').drawImage(loadedImage,0,0);canvas.toBlob(blob=>{let url=URL.createObjectURL(blob),a=document.getElementById('imageDownload');a.href=url;a.style.display='inline-block';document.getElementById('imageInfo').textContent+=` · Image compressée : ${(blob.size/1024).toFixed(1)} Ko`;},'image/jpeg',Number(document.getElementById('quality').value)/100)}
-function makePassword(){let len=Number(document.getElementById('passLen')?.value||16),chars='abcdefghijkmnopqrstuvwxyz';if(document.getElementById('passUpper')?.checked)chars+='ABCDEFGHJKLMNPQRSTUVWXYZ';if(document.getElementById('passNumber')?.checked)chars+='23456789';if(document.getElementById('passSymbol')?.checked)chars+='!@#$%&*_-+=';let arr=new Uint32Array(len);crypto.getRandomValues(arr);let pass=Array.from(arr,x=>chars[x%chars.length]).join('');let el=document.getElementById('passResult');if(el)el.textContent=pass}
-function copyPassword(){navigator.clipboard?.writeText(document.getElementById('passResult').textContent).then(()=>alert('Mot de passe copié.')).catch(()=>alert('Copie non disponible.'))}
+<link rel="canonical" href="https://lioneldonald2009-ui.github.io/all-tools/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ALL TOOLS — Outils en ligne gratuits">
+<meta property="og:description" content="Six outils pratiques et gratuits : calculer, convertir, créer des QR codes, traiter des images et transformer du texte.">
+<meta property="og:url" content="https://lioneldonald2009-ui.github.io/all-tools/">
+<meta property="og:site_name" content="ALL TOOLS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ALL TOOLS — Outils en ligne gratuits">
+<meta name="twitter:description" content="Des outils simples, rapides et gratuits pour le téléphone et l'ordinateur.">
+<title>ALL TOOLS — Outils en ligne gratuits pour tous</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ALL TOOLS",
+  "url": "https://lioneldonald2009-ui.github.io/all-tools/",
+  "description": "Outils en ligne gratuits : calculatrice, convertisseur, générateur de QR code, outils de texte, compresseur d'images et générateur de mots de passe.",
+  "inLanguage": "fr"
+}
 </script>
-</body>
-</html>
