@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,6 +42,9 @@ button,.btn{border:0;border-radius:11px;padding:11px 15px;background:linear-grad
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool-card{background:linear-gradient(160deg,#17223a,#11192b);border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;color:var(--text);transition:.18s;min-height:140px}.tool-card:hover{transform:translateY(-3px);border-color:#7184ff;box-shadow:0 12px 28px #0004}.tool-icon{width:42px;height:42px;border-radius:13px;background:#26365a;display:grid;place-items:center;font-size:21px;margin-bottom:12px}.tool-card h3{margin:0 0 4px;font-size:16px}.tool-card p{margin:0;color:var(--muted);font-size:13px}
 .workspace{margin-top:24px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);display:none}.workspace.active{display:block}.workspace-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.workspace-head h2{margin:0}.workspace-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.close{background:#26334d;padding:7px 11px}.tool-body{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px;margin-bottom:12px}.field label{color:#c6d2e7;font-size:13px;font-weight:650}.result{padding:13px;border:1px dashed #526488;border-radius:12px;background:#0d1729;min-height:48px;overflow-wrap:anywhere}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.muted{color:var(--muted);font-size:13px}.calc{max-width:340px}.calc-display{text-align:right;font-size:28px;margin-bottom:10px}.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.calc-grid button{padding:15px 5px;background:#263550}.calc-grid .op{background:#35477a}.calc-grid .equals{background:linear-gradient(135deg,var(--accent),#586ce0)}.qr-box{min-height:210px;display:grid;place-items:center;background:white;border-radius:12px;padding:12px}.qr-box canvas,.qr-box img{max-width:100%;height:auto}.drop{border:1px dashed #536789;border-radius:13px;padding:20px;text-align:center;color:var(--muted)}.preview{max-width:100%;max-height:260px;border-radius:12px;display:block;margin:12px auto}.stats{display:flex;gap:12px;flex-wrap:wrap}.stat{background:#0d1729;border:1px solid var(--line);padding:12px 15px;border-radius:12px;min-width:100px}.stat b{font-size:20px;display:block}.stat span{color:var(--muted);font-size:12px}
 footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#aeb8ff;text-decoration:none}
+.footer-links a:hover{text-decoration:underline;color:#55e1d1}
 .notice{background:#172b36;border:1px solid #28545b;border-radius:12px;padding:12px;color:#b9eee6;font-size:13px;margin-top:14px}
 @media(max-width:760px){.shell{padding:15px}.hero{grid-template-columns:1fr;padding-top:27px}.hero-card{display:none}.grid{grid-template-columns:repeat(2,1fr)}.tool-body{grid-template-columns:1fr}.searchbar{flex-direction:column}.section-head{align-items:start;flex-direction:column}}
 @media(max-width:420px){.grid{grid-template-columns:1fr}.brand{font-size:17px}.pill{font-size:10px}}
@@ -68,7 +72,14 @@ footer{border-top:1px solid var(--line);margin-top:36px;padding:20px 0;color:var
 <div id="toolContent"></div>
 </section>
 <div class="notice">🔒 Confidentialité : les outils de calcul, de texte, de mot de passe et de compression d'image fonctionnent localement dans ton navigateur. Tes fichiers ne sont pas envoyés à un serveur par cette page.</div>
-<footer><span>© 2026 ALL TOOLS · Projet indépendant</span><span>Une première version à améliorer avec tes idées.</span></footer>
+<footer>
+  <span>© 2026 ALL TOOLS · Projet indépendant</span>
+  <nav class="footer-links" aria-label="Liens utiles">
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Politique de confidentialité</a>
+  </nav>
+</footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
@@ -98,7 +109,7 @@ function textStats(){let el=document.getElementById('textInput');if(!el)return;l
 function transformText(mode){let el=document.getElementById('textInput');if(mode==='upper')el.value=el.value.toLocaleUpperCase('fr');if(mode==='lower')el.value=el.value.toLocaleLowerCase('fr');if(mode==='clean')el.value=el.value.replace(/\s+/g,' ').trim();textStats()}
 function copyText(){navigator.clipboard?.writeText(document.getElementById('textInput').value).then(()=>alert('Texte copié.')).catch(()=>alert('Copie non disponible dans ce navigateur.'))}
 let loadedImage=null;function loadImage(e){let f=e.target.files[0];if(!f)return;let url=URL.createObjectURL(f),img=new Image();img.onload=()=>{loadedImage=img;document.getElementById('imagePreview').src=url;document.getElementById('imagePreview').style.display='block';document.getElementById('imageInfo').textContent=`Image originale : ${img.width} × ${img.height} px · ${(f.size/1024).toFixed(1)} Ko`;document.getElementById('imageDownload').style.display='none'};img.src=url}
-function compressImage(){if(!loadedImage){alert('Choisis d’abord une image.');return}let canvas=document.createElement('canvas');canvas.width=loadedImage.width;canvas.height=loadedImage.height;canvas.getContext('2d').drawImage(loadedImage,0,0);canvas.toBlob(blob=>{let url=URL.createObjectURL(blob),a=document.getElementById('imageDownload');a.href=url;a.style.display='inline-block';document.getElementById('imageInfo').textContent+=` · Image compressée : ${(blob.size/1024).toFixed(1)} Ko`;},'image/jpeg',Number(document.getElementById('quality').value)/100)}
+function compressImage(){if(!loadedImage){alert('Choisis d’abord une image.');return}let canvas=document.createElement('canvas');canvas.width=loadedImage.width;canvas.height=loadedImage.height;canvas.getContext('2d').drawImage(loadedImage,0,0);canvas.toBlob(blob=>{if(!blob){alert('Impossible de compresser cette image.');return}let url=URL.createObjectURL(blob),a=document.getElementById('imageDownload');a.href=url;a.style.display='inline-block';document.getElementById('imageInfo').textContent+=` · Image compressée : ${(blob.size/1024).toFixed(1)} Ko`;},'image/jpeg',Number(document.getElementById('quality').value)/100)}
 function makePassword(){let len=Number(document.getElementById('passLen')?.value||16),chars='abcdefghijkmnopqrstuvwxyz';if(document.getElementById('passUpper')?.checked)chars+='ABCDEFGHJKLMNPQRSTUVWXYZ';if(document.getElementById('passNumber')?.checked)chars+='23456789';if(document.getElementById('passSymbol')?.checked)chars+='!@#$%&*_-+=';let arr=new Uint32Array(len);crypto.getRandomValues(arr);let pass=Array.from(arr,x=>chars[x%chars.length]).join('');let el=document.getElementById('passResult');if(el)el.textContent=pass}
 function copyPassword(){navigator.clipboard?.writeText(document.getElementById('passResult').textContent).then(()=>alert('Mot de passe copié.')).catch(()=>alert('Copie non disponible.'))}
 </script>
